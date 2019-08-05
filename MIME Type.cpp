@@ -16,7 +16,7 @@ int main()
     vector<string> answers;
     
     //map population
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; ++i) {
         string EXT; // file extension
         string MT;  // MIME type.
         cin >> EXT >> MT; cin.ignore();
@@ -26,7 +26,7 @@ int main()
     }
     
     // parse filename in order to find dot index
-    for (int i = 0; i < Q; i++) {
+    for (int i = 0; i < Q; ++i) {
         string FNAME; // One file name per line.
         getline(cin, FNAME);
         
