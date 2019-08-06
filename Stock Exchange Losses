@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main()
+{
+    int n;
+    std::cin >> n; std::cin.ignore();
+    std::vector<int> values;
+
+
+    for (int i = 0; i < n; ++i) {
+        int v;
+        std::cin >> v; std::cin.ignore();
+        values.push_back(v);     
+    }
+    
+    
+    int loss = 0;
+    int max = values[0];
+    int min = values[0];
+    
+    for(int i=1;i<values.size();++i){
+        if(values[i] > max)
+            max = values[i];
+        else if(values[i]<min){
+            min = values[i];
+            loss = min-max;
+        }else{
+            int tmp = values[i]-max;
+            if(tmp<loss)
+                loss = tmp;
+        }
+    }
+    
+    
+    std::cout << loss << std::endl;
+    
+    
+}
