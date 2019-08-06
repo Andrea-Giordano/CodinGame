@@ -27,12 +27,15 @@ class Solution {
                 if(mat[i][j]==0){
                     int sum = 0;
                     //explore neighborhood
+                    goOn:
                     for(int k=-1;k<2;++k){
                         for(int z=-1;z<2;++z){
-                            if(k!=0 || z!=0 && mat[i+k][j+z]!=0){
-                                sum += mat[i+k][j+z];
-                            }
-                        }
+                            if(k!=0 || z!=0)
+                                if(mat[i+k][j+z]==0)
+                                    break goOn;
+                                else
+                                    sum += mat[i+k][j+z];
+                        }     
                     }
                     if(sum == 8){
                         System.out.println((j-1)+" "+(i-1));
