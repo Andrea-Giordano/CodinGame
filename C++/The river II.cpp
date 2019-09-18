@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-#include <unordered_map>
+#include <unordered_set>
 
 int sumDigits(int n){
     
@@ -19,13 +19,13 @@ int main()
 {
     int r, r1 = 1;
     std::cin >> r; std::cin.ignore();
-    std::unordered_map<int, bool> seen;
+    std::unordered_set<int> seen;
     
-    for(int i=1; i<r && r1 != r; ++i){
+    for(int i=r-1; i>0 && r1 != r; --i){
         r1 = i;
         
         while(r1<r && seen.find(r1) == seen.end()){ //When a non meeting river is met, just skip.
-            seen[r1] = true;
+            seen.insert(r1);
             r1 += sumDigits(r1);
         }
     }
